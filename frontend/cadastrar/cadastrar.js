@@ -16,7 +16,7 @@ async function cadastrarFilme() {
         duration: duration.valueAsNumber
     }
 
-    const resposta = await fetch("https://filmes-backend.vercel.app/create", {
+    const resposta = await fetch("https://filmes-vert-theta.vercel.app/create", {
         method: "POST",
         headers: {
             "Content-type": "application/json"

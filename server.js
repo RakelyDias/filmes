@@ -30,12 +30,15 @@ app.get("/", (request, response) => {
 app.post("/create", (request, response) => {
     const { title, gender, ageLimit, duration } = request.body
 
-    const insertCommand = "INSERT INTO filmes_LorenaMendesRakelyDias(title, gender, ageLimit, duration) VALUES (?, ?, ?, ?)"
+    const insertCommand = "INSERT INTO filmes_LorenaMendesRakelyDias(title, genre, age_rating, duration) VALUES (?, ?, ?, ?)"
 
     sql.query(insertCommand, [title, gender, ageLimit, duration], (error) => {
         if (error) {
             console.log(error)
-            return response.status(500).json({ message: "Erro ao cadastrar filme", error })
+            return response.status(500).json({
+                message: "Erro ao cadastrar filme",
+                error
+            })
         }
 
         response.status(201).json({
