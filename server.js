@@ -68,18 +68,27 @@ app.put("/update/:id", (request, response) => {
     const { id } = request.params
     const { title, gender, ageLimit, duration } = request.body
 
-    const updateCommand = "UPDATE filmes_LorenaMendesRakelyDias SET title = ?, gender = ?, ageLimit = ?, duration = ? WHERE id = ?"
+    const updateCommand =
+        "UPDATE filmes_LorenaMendesRakelyDias SET title = ?, genre = ?, age_rating = ?, duration = ? WHERE id = ?"
 
-    sql.query(updateCommand, [title, gender, ageLimit, duration, id], (error) => {
-        if (error) {
-            console.log(error)
-            return response.status(500).json({ message: "Erro ao alterar filme", error })
+    sql.query(
+        updateCommand,
+        [title, gender, ageLimit, duration, id],
+        (error) => {
+            if (error) {
+                console.log(error)
+
+                return response.status(500).json({
+                    message: "Erro ao alterar filme",
+                    error
+                })
+            }
+
+            response.json({
+                message: "Filme alterado com sucesso!"
+            })
         }
-
-        response.json({
-            message: "Filme alterado com sucesso!"
-        })
-    })
+    )
 })
 
 export default app
