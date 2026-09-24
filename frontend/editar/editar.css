@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #ece8e1;
+    --bg-2: #f5f1eb;
+    --paper: #fcfaf6;
+
+    --black: #121212;
+    --black-2: #1d1d1d;
+
+    --wine: #6c2030;
+    --wine-dark: #4d1622;
+
+    --text: #1d1b19;
+    --muted: #6f6a63;
+    --line: #d8d0c6;
+
+    --shadow-1: 0 6px 16px rgba(0, 0, 0, 0.06);
+    --shadow-2: 0 26px 48px rgba(38, 30, 25, 0.12);
+
+    --radius-xl: 22px;
+    --radius-md: 12px;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px),
+        radial-gradient(circle at top left, rgba(108, 32, 48, 0.08), transparent 28%),
+        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+
+    background-size: 28px 28px, 28px 28px, auto, auto;
+}
+
+/* HEADER */
+
+header {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 220px;
+    padding: 40px 7% 36px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #0f0f10 0%,
+            #171718 48%,
+            #29171c 100%
+        );
+
+    color: white;
+    border-bottom: 5px solid var(--wine);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+header::before {
+    content: "EDIÇÃO DE REGISTRO";
+    position: absolute;
+    left: 7%;
+    top: 38px;
+
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.38);
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    right: -110px;
+    top: -150px;
+
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 0 0 48px rgba(255,255,255,0.03),
+        0 0 0 96px rgba(255,255,255,0.018);
+}
+
+header a {
+    position: relative;
+    z-index: 1;
+
+    color: #ddd8d3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+header a:hover {
+    color: white;
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+
+    margin: 54px 0 0;
+
+    font-size: 50px;
+    line-height: 1;
+    letter-spacing: -1.8px;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* MAIN */
+
+main {
+    width: min(740px, 92%);
+    margin: -46px auto 80px;
+    position: relative;
+    z-index: 2;
+}
+
+/* FORM */
+
+form {
+    position: relative;
+    overflow: hidden;
+
+    padding: 40px;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(252,250,246,0.98));
+
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-1), var(--shadow-2);
+}
+
+form::before {
+    content: "ATUALIZE OS DADOS DO FILME";
+    display: block;
+
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #e7dfd6;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--wine);
+}
+
+form::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: -40px;
+
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+
+    background: radial-gradient(circle, rgba(108,32,48,0.06), transparent 70%);
+}
+
+form div {
+    margin-bottom: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    color: #3a342e;
+    text-transform: uppercase;
+}
+
+input {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 16px;
+
+    border: 1px solid #cec5b9;
+    border-radius: var(--radius-md);
+
+    background: rgba(255,255,255,0.75);
+    color: #1e1b18;
+
+    font-size: 15px;
+    outline: none;
+
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+input:focus {
+    background: white;
+    border-color: var(--wine);
+    box-shadow:
+        0 0 0 4px rgba(108, 32, 48, 0.08);
+    transform: translateY(-1px);
+}
+
+/* BOTÃO */
+
+button[type="submit"],
+form button {
+    width: 100%;
+    margin-top: 14px;
+
+    min-height: 52px;
+    padding: 14px 18px;
+
+    border: none;
+    border-radius: var(--radius-md);
+
+    background:
+        linear-gradient(180deg, var(--wine) 0%, var(--wine-dark) 100%);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    box-shadow: 0 12px 24px rgba(80, 19, 29, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+button[type="submit"]:hover,
+form button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+    box-shadow: 0 16px 30px rgba(80, 19, 29, 0.28);
+}
+
+@media (max-width: 700px) {
+    header {
+        min-height: 200px;
+        padding: 34px 5% 32px;
+    }
+
+    header::before {
+        left: 5%;
+    }
+
+    header h1 {
+        font-size: 42px;
+        margin-top: 46px;
+    }
+
+    main {
+        width: 92%;
+        margin-top: -34px;
+    }
+
+    form {
+        padding: 28px 24px;
+    }
+}
